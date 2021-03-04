@@ -72,8 +72,23 @@ const petsModule = (function () {
     for (let i = 0; i < _data.length; i++) {
       $temp = $tbodyEl.children[i];
       let $setColor = $temp.getAttribute("class");
-      $temp.addEventListener("click", function () {
-        $tbodyEl.children[i].style.backgroundColor = $setColor;
+      $temp.addEventListener("click", function (event) {
+        if (i === 0) {
+          $tbodyEl.children[i].style.backgroundColor = $setColor;
+          $tbodyEl.children[1].style.backgroundColor = "#cbedb5";
+          $tbodyEl.children[2].style.backgroundColor = "#cbedb5";
+        }
+        if (i === 1) {
+          $tbodyEl.children[i].style.backgroundColor = $setColor;
+          $tbodyEl.children[0].style.backgroundColor = "#cbedb5";
+          $tbodyEl.children[2].style.backgroundColor = "#cbedb5";
+        }
+        if (i === 2) {
+          $tbodyEl.children[i].style.backgroundColor = $setColor;
+          $tbodyEl.children[0].style.backgroundColor = "#cbedb5";
+          $tbodyEl.children[1].style.backgroundColor = "#cbedb5";
+        }
+
         $mainImageEl = _data[i].image;
         let $tempImage = document.querySelector(".main-image");
         $tempImage.src = $mainImageEl;
